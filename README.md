@@ -2,7 +2,7 @@
 
 `conways-gol` is a *Conway's Game of Life* implementation with Go and OpenGL using [go-gl](https://github.com/go-gl).
 
-![Conway's Game of Life](./demo.gif)
+![Conway's Game of Life](./_docs/demo.gif)
 
 ## *The 'Game'*
 
