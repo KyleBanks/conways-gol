@@ -37,11 +37,13 @@ $ conways-gol
 
 #### `-columns` and `-rows`
 
-The `-columns` and `-rows` parameters dictate the size of the game board. 
+The `-columns` and `-rows` parameters dictate the size of the game board.
 
 ```
-$ conways-gol -columns 20 -rows 20
+$ conways-gol -columns 100 -rows 100
 ```
+
+![Conways Game of Life 100x100](./_docs/demo_100x100.gif)
 
 #### `-seed`
 
