@@ -115,10 +115,10 @@ func newCell(x, y int) *Cell {
 		var size float32
 		switch i % 3 {
 		case 0:
-			size = cellWidth
+			size = 1.0 / float32(columns)
 			factor = float32(x) * size
 		case 1:
-			size = cellHeight
+			size = 1.0 / float32(rows)
 			factor = float32(y) * size
 		default:
 			continue

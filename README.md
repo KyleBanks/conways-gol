@@ -35,7 +35,15 @@ $ conways-gol
 
 `conways-gol` takes a few optional parameters:
 
-### `-seed`
+#### `-columns` and `-rows`
+
+The `-columns` and `-rows` parameters dictate the size of the game board. 
+
+```
+$ conways-gol -columns 20 -rows 20
+```
+
+#### `-seed`
 
 Each time `conways-gol` is launched, it uses a seed value to randomize the state of the game. The `-seed` parameter allows you to fix that value to replay the exact same simulation. For example, a `-seed` value of `9000` will always produce an identical game.
 
@@ -43,7 +51,7 @@ Each time `conways-gol` is launched, it uses a seed value to randomize the state
 $ conways-gol -seed 9000
 ```
 
-### `-threshold`
+#### `-threshold`
 
 In addition to the `-seed`, the `-threshold` is critical in determining the outcome of the game. The `-threshold` is a percentage, between `0.0` and `1.0` that dictates the chance of each individual cell starting alive or dead. For instance, if the `-threshold` is `0.15`, it means that each cell has a `15%` chance of starting the game alive.
 
@@ -51,7 +59,7 @@ In addition to the `-seed`, the `-threshold` is critical in determining the outc
 $ conways-gol -threshold 0.1
 ```
 
-### `-fps`
+#### `-fps`
 
 The `-fps` flag allows you to configure the frames-per-second of the simulation. If you set `-fps` to `60`, there will be sixty ticks of the game each second. 
 
