@@ -27,21 +27,34 @@ $ go get github.com/KyleBanks/conways-gol
 
 ## Usage
 
-`conways-gol` begins by initializing the game board with the [grid defined in main.go](https://github.com/KyleBanks/conways-gol/blob/master/main.go#L43). The grid configuration acts as a seed, with the outcome of the game determined by its initial state.
+```sh
+$ conways-gol
+```
 
-For full details on the types of outcomes, see [Examples of Patterns](https://en.wikipedia.org/wiki/Conway's_Game_of_Life#Examples_of_patterns).
+`conways-gol` takes a few optional parameters:
 
-To try a game configuration, modify the initial grid to match the desired state and run:
+### `-seed`
+
+Each time `conways-gol` is launched, it uses a seed value to randomize the state of the game. The `-seed` parameter allows you to fix that value to replay the exact same simulation. For example, a `-seed` value of `9000` will always produce an identical game.
 
 ```sh
-# Make your changes...
-$ vi main.go 
+$ conways-gol -seed 9000
+```
 
-# Install...
-$ go install github.com/KyleBanks/conways-gol
+### `-threshold`
 
-# Run!
-$ conways-gol
+In addition to the `-seed`, the `-threshold` is critical in determining the outcome of the game. The `-threshold` is a percentage, between `0.0` and `1.0` that dictates the chance of each individual cell starting alive or dead. For instance, if the `-threshold` is `0.15`, it means that each cell has a `15%` chance of starting the game alive.
+
+```sh
+$ conways-gol -threshold 0.1
+```
+
+### `-fps`
+
+The `-fps` flag allows you to configure the frames-per-second of the simulation. If you set `-fps` to `60`, there will be sixty ticks of the game each second. 
+
+```sh
+$ conways-gol -fps 60
 ```
 
 ## Author
