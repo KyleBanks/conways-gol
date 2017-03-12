@@ -1,6 +1,13 @@
 # Conway's Game of Life
 
-`conways-gol` is a *Conway's Game of Life* implementation with Go and OpenGL using [go-gl](https://github.com/go-gl).
+`conways-gol` is a *Conway's Game of Life* implementation using Go and OpenGL with [go-gl](https://github.com/go-gl), and was developed as part of a tutorial I wrote on *OpenGL with Go*. 
+
+To follow the tutorial and learn OpenGL with Go by implementing *Conway's Game of Life* for yourself, check out:
+
+- [Part 1: Hello, OpenGL](https://kylewbanks.com/blog/tutorial-opengl-with-golang-part-1-hello-opengl): Install and Setup OpenGL and [GLFW](http://www.glfw.org/), Draw a Triangle to the Window
+- [Part 2: Drawing the Game Board](https://kylewbanks.com/blog/tutorial-opengl-with-golang-part-2-drawing-the-game-board): Make a Square out of Triangles, Draw a Grid of Squares covering the Window
+- [Part 3: Implementing the Game](https://kylewbanks.com/blog/tutorial-opengl-with-golang-part-3-implementing-the-game): Implement Conway's Game
+
 
 ![Conway's Game of Life](./_docs/demo.gif)
 
