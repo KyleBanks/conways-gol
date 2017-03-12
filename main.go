@@ -55,7 +55,7 @@ func main() {
 }
 
 // tick updates the state of each cell in the game board.
-func tick(cells [][]*Cell) {
+func tick(cells [][]*cell) {
 	for x := range cells {
 		for _, c := range cells[x] {
 			c.checkState(cells)
@@ -64,7 +64,7 @@ func tick(cells [][]*Cell) {
 }
 
 // draw redraws the game board and the cells within.
-func draw(prog uint32, window *glfw.Window, cells [][]*Cell) error {
+func draw(prog uint32, window *glfw.Window, cells [][]*cell) error {
 	gl.Clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT)
 	gl.UseProgram(prog)
 

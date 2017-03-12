@@ -23,7 +23,7 @@ var (
 	squarePointCount = int32(len(squarePoints) / 3)
 )
 
-type Cell struct {
+type cell struct {
 	drawable uint32
 
 	x int
@@ -33,8 +33,8 @@ type Cell struct {
 	nextState bool
 }
 
-// checkState determines the state of the Cell for the next tick of the game.
-func (c *Cell) checkState(cells [][]*Cell) {
+// checkState determines the state of the cell for the next tick of the game.
+func (c *cell) checkState(cells [][]*cell) {
 	c.alive = c.nextState
 	c.nextState = c.alive
 
@@ -62,8 +62,8 @@ func (c *Cell) checkState(cells [][]*Cell) {
 	}
 }
 
-// liveNeighbors returns the number of live neighbors for a Cell.
-func (c *Cell) liveNeighbors(cells [][]*Cell) int {
+// liveNeighbors returns the number of live neighbors for a cell.
+func (c *cell) liveNeighbors(cells [][]*cell) int {
 	var liveCount int
 	add := func(x, y int) {
 		// If we're at an edge, check the other side of the board.
@@ -95,8 +95,8 @@ func (c *Cell) liveNeighbors(cells [][]*Cell) int {
 	return liveCount
 }
 
-// draw draws the Cell if it is alive.
-func (c *Cell) draw() {
+// draw draws the cell if it is alive.
+func (c *cell) draw() {
 	if !c.alive {
 		return
 	}
@@ -105,8 +105,8 @@ func (c *Cell) draw() {
 	gl.DrawArrays(gl.TRIANGLES, 0, squarePointCount)
 }
 
-// newCell initializes and returns a Cell with the given x/y coordinates.
-func newCell(x, y int) *Cell {
+// newCell initializes and returns a cell with the given x/y coordinates.
+func newCell(x, y int) *cell {
 	points := make([]float32, len(squarePoints), len(squarePoints))
 	copy(points, squarePoints)
 
@@ -131,7 +131,7 @@ func newCell(x, y int) *Cell {
 		}
 	}
 
-	return &Cell{
+	return &cell{
 		drawable: makeVao(points),
 
 		x: x,
@@ -139,12 +139,12 @@ func newCell(x, y int) *Cell {
 	}
 }
 
-// makeCells creates the Cell matrix and sets the initial state of the game.
-func makeCells(seed int64, threshold float64) [][]*Cell {
+// makeCells creates the cell matrix and sets the initial state of the game.
+func makeCells(seed int64, threshold float64) [][]*cell {
 	log.Printf("Using seed=%v, threshold=%v", seed, threshold)
 	rand.Seed(seed)
 
-	cells := make([][]*Cell, rows, rows)
+	cells := make([][]*cell, rows, rows)
 	for x := 0; x < rows; x++ {
 		for y := 0; y < columns; y++ {
 			c := newCell(x, y)
