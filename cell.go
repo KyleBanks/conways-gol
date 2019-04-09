@@ -35,9 +35,6 @@ type cell struct {
 
 // checkState determines the state of the cell for the next tick of the game.
 func (c *cell) checkState(cells [][]*cell) {
-	c.alive = c.nextState
-	c.nextState = c.alive
-
 	liveCount := c.liveNeighbors(cells)
 	if c.alive {
 		// 1. Any live cell with fewer than two live neighbours dies, as if caused by underpopulation.
@@ -97,6 +94,7 @@ func (c *cell) liveNeighbors(cells [][]*cell) int {
 
 // draw draws the cell if it is alive.
 func (c *cell) draw() {
+	c.alive = c.nextState
 	if !c.alive {
 		return
 	}
